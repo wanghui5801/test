@@ -2,3 +2,4 @@ armagarch
 statsmodels
 pandas
 matplotlib
+openpyxl
