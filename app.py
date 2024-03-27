@@ -1,9 +1,5 @@
 import streamlit as st
 import pandas as pd
-from streamlit_echarts import st_echarts
-from pyecharts import options as opts
-from pyecharts.charts import Bar
-from streamlit_echarts import st_pyecharts
 import numpy as np
 import armagarch as ag
 import matplotlib.pyplot as plt
