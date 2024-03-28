@@ -27,15 +27,15 @@ model.fit()
 
 # get the conditional mean
 Ey = model.Ey
-st.line_chart(Ey)
+#st.line_chart(Ey)
 # get conditional variance
 ht = model.ht
 cvol = np.sqrt(ht)
-st.line_chart(cvol)
+#st.line_chart(cvol)
 
 # get standardized residuals
 stres = model.stres
-st.line_chart(stres)
+#st.line_chart(stres)
 
 # make a prediction of mean and variance over next 3 days.
 pred = model.predict(nsteps = head)
