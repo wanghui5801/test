@@ -3,3 +3,5 @@ statsmodels
 pandas
 matplotlib
 openpyxl
+streamlit_echarts
+pyecharts
