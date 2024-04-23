@@ -1,5 +1,9 @@
 import streamlit as st
 import pandas as pd
+from streamlit_echarts import st_echarts
+from pyecharts import options as opts
+from pyecharts.charts import Bar
+from streamlit_echarts import st_pyecharts
 import numpy as np
 import armagarch as ag
 import matplotlib.pyplot as plt
@@ -40,6 +44,36 @@ stres = model.stres
 # make a prediction of mean and variance over next 3 days.
 pred = model.predict(nsteps = head)
 
+pp = pd.DataFrame(pred[0])
+
+pp.columns = ['price']
+
+#dd = ff3.tail(1)['price'].values
+
+xx = pd.concat([ff3['price'].to_frame(),pp],axis=0, ignore_index=True)
+
+
+option = {
+  "xAxis": {
+    "type": 'category',
+    "data": list(xx.index),
+  },
+  "yAxis": {
+    "type": 'value'
+  },
+  "series": [
+    {
+      "data": list(xx['price']),
+      "type": 'line'
+    }
+  ]
+};
+
+st_echarts(option,height='400px')
+
+
+
+
 # plot in three subplots
 import datetime
 
@@ -55,9 +89,3 @@ st.dataframe(dfa)
 #st.write(pred)
 # pred is a list of two-arrays with first array being prediction of mean
 # and second array being prediction of variance
-
-
-
-
-
-
